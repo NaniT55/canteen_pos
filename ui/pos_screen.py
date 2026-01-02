@@ -158,7 +158,7 @@ def show_pos():
     # ================= PRINT SECTION =================
     if st.session_state.get("ready_to_print"):
 
-    st.subheader("🖨️ Print Receipt")
+        st.subheader("🖨️ Print Receipt")
 
     if APP_MODE == "CLOUD":
         st.info("Printing disabled in demo mode (Cloud deployment)")
