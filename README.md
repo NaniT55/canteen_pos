@@ -64,31 +64,6 @@ Monthly unpaid billing
 
 Transaction history with item details
 
-🏗️ Project Structure
-canteen_pos/
-│
-├── app.py                 # Main entry point
-├── config.py              # Environment mode (LOCAL / CLOUD)
-├── requirements.txt
-│
-├── data/
-│   └── canteen.db         # SQLite database
-│
-├── database/
-│   └── db.py              # DB connection & initialization
-│
-├── models/                # DB models
-├── services/              # Business logic
-├── utils/
-│   ├── pricing.py
-│   ├── thermal_receipt.py
-│
-├── ui/
-│   └── pos_screen.py      # POS UI
-│
-└── .streamlit/
-    └── config.toml
-
 🖥️ Running Locally (Recommended for Real POS)
 1️⃣ Install Dependencies
 pip install -r requirements.txt
