@@ -3,31 +3,41 @@ from database.db import get_connection
 def normalize_category(category):
     return "Drinks" if category == "Cool Drinks" else category
 
-def get_menu(only_enabled=True):
+def get_menu(only_enabled=False):
     conn = get_connection()
     cur = conn.cursor()
 
     if only_enabled:
         cur.execute("""
-            SELECT id, name, category,
-                   price_doctor_staff, price_patient, price_visitor,
-                   stock, is_enabled
+            SELECT
+                id,
+                name,
+                category,
+                price_doctor_staff,
+                price_patient,
+                price_visitor,
+                is_enabled
             FROM menu_items
             WHERE is_enabled = 1
             ORDER BY category, name
         """)
     else:
         cur.execute("""
-            SELECT id, name, category,
-                   price_doctor_staff, price_patient, price_visitor,
-                   stock, is_enabled
+            SELECT
+                id,
+                name,
+                category,
+                price_doctor_staff,
+                price_patient,
+                price_visitor,
+                is_enabled
             FROM menu_items
             ORDER BY category, name
         """)
 
-    data = cur.fetchall()
+    rows = cur.fetchall()
     conn.close()
-    return data
+    return rows
 
 
 def add_menu_item(name, category, p_ds, p_patient, p_visitor):

@@ -1,23 +1,20 @@
 def get_price(item, customer_type):
     """
-    item structure:
-    [0] id
-    [1] name
-    [2] category
-    [3] price_doctor_staff
-    [4] price_patient
-    [5] price_visitor
-    [6] stock
-    [7] is_enabled
+    item = (
+        id,
+        name,
+        category,
+        price_doctor_staff,
+        price_patient,
+        price_visitor,
+        is_enabled
+    )
     """
-
-    price_doctor_staff = item[3]
-    price_patient = item[4]
-    price_visitor = item[5]
+    _, _, _, p_ds, p_patient, p_visitor, _ = item
 
     if customer_type in ["Doctor", "Staff"]:
-        return price_doctor_staff
+        return p_ds
     elif customer_type == "Patient":
-        return price_patient
-    else:  # Visitor
-        return price_visitor
+        return p_patient
+    else:
+        return p_visitor
